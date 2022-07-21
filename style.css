@@ -3,6 +3,19 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: antiquewhite;
+    color:black;
+    transition: ease 1s;
+}
+
+.darkMode {
+    background-color: black;
+    color:white;
+}
+
+
+
 .form{
     width: 200px;
     height: max-content;
@@ -15,9 +28,11 @@
     background-position: 0 0,29px 29px;
     border-radius: 15px;
     text-align: center;
+    align-items: center;
 
 }
 
 #enviar{
-    margin-top: 10px;
+    margin: 10px;
+    width: 80%;
 }
