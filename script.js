@@ -1,21 +1,67 @@
-var getData = function (){
-    const nombre = document.getElementById("nombre").value;
-    const edad = document.getElementById("edad").value;
-    console.log(nombre +" "+ edad)
+class Juego {
+    constructor(nombre, precio, categoria) {
+        this.nombre = nombre
+        this.precio = precio
+        this.categoria = categoria
+
+    }
 }
 
-const darkMode = document.getElementById('darkMode')
-const lightMode = document.getElementById('lightMode')
+let juegos = []
 
-darkMode.addEventListener("click", () => {
-    document.body.style.backgroundColor = "#000"
-    document.body.style.color = "#fff"
+if(localStorage.getItem('juegos')) {
+    juegos = JSON.parse(localStorage.getItem('juegos'))
+} else {
+    localStorage.setItem('juegos', JSON.stringify(juegos))
+}
+
+const formJuegos = document.getElementById("formJuegos")
+const divJuegos = document.getElementById("divJuegos")
+const botonJuegos = document.getElementById("botonJuegos")
+
+
+formJuegos.addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log(e.target)
+    let datForm = new FormData(e.target) 
+
+
+    let juego = new Juego(datForm.get('nombre'), datForm.get('precio'), datForm.get('categoria'))
+    juegos.push(juego)
+    console.log(juegos)
+    localStorage.setItem('juegos', JSON.stringify(juegos))
+    formJuegos.reset()
 })
 
+botonJuegos.addEventListener('click', () => {
+    let arrayStorage = JSON.parse(localStorage.getItem('juegos'))
+    divJuegos.innerHTML = ""
+    arrayStorage.forEach((juego, indice) => {
+        
+        divJuegos.innerHTML += `
+        <div class="card_container" id="juego${indice}">
+            <div class="card_title"><h2 class="card_name">${juego.nombre}</h2></div>
+            <div class="card_precioBTN">
+                <p class=""> $ ${juego.precio}</p>
+                <p class=""> ${juego.categoria}</p>
+                <button class="button-5 btnEliminar">Eliminar Juego</button>
+            </div>
+        </div>
+        
+        `
+    });
+
+    arrayStorage.forEach((juego, indice) => {
+        let botonCard = document.getElementById(`juego${indice}`).lastElementChild.lastElementChild
+        botonCard.addEventListener('click', () => {
+            document.getElementById(`juego${indice}`).remove()
+            juegos.splice(indice,1)
+            localStorage.setItem('juegos', JSON.stringify(juegos))
+            console.log(`${juego.nombre} Eliminada`)
+        })
+    })
 
 
-botonLightMode.addEventListener('click', () => {
-    document.body.style.backgroundColor = "#fff"
-    document.body.style.color = "#000"
 })
+
 
