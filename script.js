@@ -80,7 +80,7 @@ resgritarJuego.addEventListener('click', () => {
         
         Swal.fire({
             icon: 'error',
-            title: 'Porfavor completa todos los casmpos con datos valido!',
+            title: 'Porfavor completa todos los campos con datos valido!',
             text: 'Pinche pendejo!',
           })
 
