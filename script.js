@@ -88,7 +88,7 @@ resgritarJuego.addEventListener('click', () => {
         Swal.fire({
             icon: 'success',
             title: 'El juego fue registrardo en su local estorage!',
-            footer: '<a class="link_alert" href="">   >Si te gustó y querés apoyar el proyecto podés invitarme un cafecito por acá. ¡Muchas gracias!</a>'
+            footer: '<a class="link_alert" href="">Si te gustó y querés apoyar el proyecto podés invitarme un cafecito por acá. ¡Muchas gracias!</a>'
      })
     }
 })
