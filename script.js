@@ -61,7 +61,35 @@ botonJuegos.addEventListener('click', () => {
         })
     })
 
+    Swal.fire({
+        title: 'Estos son los juegos que tenes guardado en tu navegador',
+        text: 'Gracias por usar tizeGame!',
+        footer: '<a class="link_alert" href="">   >Si te gustó y querés apoyar el proyecto podés invitarme un cafecito por acá. ¡Muchas gracias!</a>'
+      })
 
 })
 
+
+const resgritarJuego = document.getElementById("resgritarJuego")
+const nombreDelJuego = document.querySelector('input')
+
+
+resgritarJuego.addEventListener('click', () => {
+
+    if (nombreDelJuego.value.length == 0){
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Porfavor completa todos los casmpos con datos valido!',
+            text: 'Pinche pendejo!',
+          })
+
+    }else{
+        Swal.fire({
+            icon: 'success',
+            title: 'El juego fue registrardo en su local estorage!',
+            footer: '<a class="link_alert" href="">   >Si te gustó y querés apoyar el proyecto podés invitarme un cafecito por acá. ¡Muchas gracias!</a>'
+     })
+    }
+})
 

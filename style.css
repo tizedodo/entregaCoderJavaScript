@@ -221,3 +221,10 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 }
+
+.link_alert{
+  text-decoration: none;
+  color: #F09819;
+  background-color: #6B2737;
+  border-radius: 4px;
+}
